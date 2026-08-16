@@ -274,7 +274,7 @@ hl.device({
 local mainMod    = "SUPER"
 local browser    = "brave"
 local vpnClient  = "protonvpn-app"
--- local spotify = "brave --new-window https://open.spotify.com" -- add later
+local spotify = "brave --new-window https://open.spotify.com" 
 
 -- (top of file) update these two existing variables:
 local fileManager = "nemo"
@@ -282,7 +282,7 @@ local menu         = "walker"
 
 -- GENERAL --
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))                -- Brave Browser
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 0 }))  -- fullscreen toggle
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))  -- fullscreen toggle
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())                   -- close app
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))                -- kitty
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))                -- Walker app launcher
@@ -292,6 +292,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(fileManager))             -- Nemo
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))             -- dwindle only
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(spotify))                -- Spotify (web)
 
 -- relocated (freed up by the above) --
 hl.bind(mainMod .. " + O", hl.dsp.window.pseudo())                   -- was on P
