@@ -289,7 +289,6 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))                -- Walker a
 hl.bind(mainMod .. " + H", hl.dsp.window.cycle_next())               -- shift focus to next window
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(vpnClient))               -- ProtonVPN GUI
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(fileManager))             -- Nemo
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))             -- dwindle only
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(spotify))                -- Spotify (web)
