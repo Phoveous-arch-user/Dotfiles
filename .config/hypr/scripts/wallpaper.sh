@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
-# wallpaper.sh — wallpaper-based theming (saneAspect style)
-# Sets a wallpaper and re-themes the whole stack with matugen.
-#
-#   wallpaper.sh set <path> [--no-theme]   set a wallpaper (re-theme by default)
-#   wallpaper.sh next [folder]             cycle forward (within the active theme, or a folder)
-#   wallpaper.sh prev [folder]             cycle backward
-#   wallpaper.sh random [folder]           pick a random wallpaper
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=lib-theme.sh
