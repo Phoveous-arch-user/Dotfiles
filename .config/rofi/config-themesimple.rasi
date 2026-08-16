@@ -1,0 +1,153 @@
+/* theme-switcher simple text picker — saneAspect style */
+configuration {
+    modi:                       "dmenu";
+    font:                       "JetBrainsMono Nerd Font 11";
+    show-icons:                 false;
+    icon-theme:                 "Tela-circle-dracula";
+    hover-select:               false;
+    scroll-method:              1;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    window-format:              "{w} · {c} · {t}";
+    click-to-exit:              true;
+    close-on-delete:            true;
+    kb-cancel:                  "Escape,MousePrimary";
+}
+
+@theme "~/.config/rofi/colors.rasi"
+@import "~/.cache/ml4w/hyprland-dotfiles/current_wallpaper.rasi"
+
+/* ---- Main ---- */
+window {
+    width:                        30em;
+    x-offset:                     0em;
+    y-offset:                     0em;
+    spacing:                      0em;
+    padding:                      0em;
+    margin:                       0px;
+    color:                        #FFFFFF;
+    border:                       1px;
+    border-color:                 @primary;
+    background-color:             @background;
+    cursor:                       "default";
+    transparency:                 "real";
+    location:                     center;
+    anchor:                       center;
+    border-radius:                14px;
+    background-color:             @background;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0em;
+    orientation:                 horizontal;
+    children:                    [ "listbox" ];
+    background-color:            transparent;
+    background-image:            @current-image;
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     0.6em;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+    background-color:            @surface;
+    border-radius:               1.1em;
+    margin:                      0.8em 0.8em 0em 0.8em;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "    ";
+    padding:                     0.4em 0.2em 0.4em 0.6em;
+    text-color:                  @on-surface;
+    background-color:            transparent;
+}
+
+entry {
+    enabled:                     true;
+    spacing:                     1em;
+    padding:                     0.5em;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    cursor:                      text;
+    placeholder:                 "Theme";
+    placeholder-color:           inherit;
+}
+
+listbox {
+    padding:                     0em;
+    spacing:                     0em;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
+    background-color:            transparent;
+}
+
+listview {
+    padding:                     0.8em;
+    spacing:                     0.2em;
+    margin:                      0em;
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       false;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @on-surface;
+}
+
+element {
+    enabled:                     true;
+    padding:                     0.6em 1em;
+    margin:                      0em;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    border-radius:               1.1em;
+}
+
+element selected.normal {
+    background-color:            @surface;
+    text-color:                  @on-surface;
+    border-radius:               1.1em;
+}
+
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element normal.urgent {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element normal.active {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element selected.urgent {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element selected.active {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}

@@ -1,0 +1,105 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 6,
+  "margin-left": 6,
+  "margin-right": 6,
+  "margin-bottom": 0,
+  "spacing": 4,
+
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "tray",
+    "custom/cc",
+    "custom/power"
+  ],
+
+  "custom/launcher": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "walker"
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 35,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%d %b  %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+        "default": ["\uf026", "\uf027", "\uf028"]
+    },
+    "tooltip-format": "{desc} — {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+ },
+
+ "cpu": {
+    "interval": 2,
+    "format": " {usage}%",
+    "tooltip-format": "Load: {load}%",
+    "on-click": "kitty -e btop"
+  },
+
+  "memory": {
+    "interval": 2,
+    "format": " {percentage}%",
+    "tooltip-format": "{used} GiB used / {total} GiB",
+    "on-click": "kitty -e btop"
+  },
+
+ 
+  "custom/cc": {
+    "exec": "echo '\uf0f3'",
+    "interval": 3600,
+    "on-click": "$HOME/.config/hypr/scripts/toggle-cc.sh",
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/power-menu.sh"
+  }
+}

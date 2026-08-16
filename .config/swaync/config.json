@@ -1,0 +1,78 @@
+{
+    "positionX": "right",
+    "positionY": "top",
+    "layer": "overlay",
+    "control-center-layer": "top",
+    "layer-shell": true,
+    "cssPriority": "user",
+    "control-center-margin-top": 8,
+    "control-center-margin-bottom": 8,
+    "control-center-margin-right": 8,
+    "control-center-margin-left": 8,
+    "notification-window-width": 320,
+    "control-center-width": 320,
+    "control-center-height": 700,
+    "timeout": 6,
+    "timeout-low": 3,
+    "timeout-critical": 0,
+    "notification-icon-size": 40,
+    "notification-body-image-height": 150,
+    "notification-body-image-width": 220,
+    "fit-to-screen": true,
+    "hide-on-clear": false,
+    "hide-on-action": true,
+    "script-fail-notify": true,
+    "notification-grouping": false,
+    "widgets": [
+        "title",
+        "dnd",
+        "buttons-grid",
+        "volume",
+        "mpris",
+        "notifications"
+    ],
+    "widget-config": {
+        "title": {
+            "text": "Notifications",
+            "clear-all-button": true,
+            "button-text": "Clear All"
+        },
+        "dnd": {
+            "text": "Do Not Disturb"
+        },
+        "mpris": {
+            "blacklist": [],
+            "autohide": true,
+            "show-album-art": "always",
+            "loop-carousel": false
+        },
+        "volume": {
+            "label": " ",
+            "show-per-app": false
+        },
+        "buttons-grid": {
+            "actions": [
+                {
+                    "label": "  WiFi",
+                    "type": "normal",
+                    "command": "$HOME/.config/swaync/scripts/wifi-picker.sh"
+                },
+                {
+                    "label": "  Bluetooth",
+                    "type": "normal",
+                    "command": "walker --provider bluetooth"
+                },
+                {
+                    "label": "  Blue Light",
+                    "type": "normal",
+                    "command": "$HOME/.config/hypr/scripts/blue-light.sh toggle"
+                },
+                {
+                    "label": "  Audio",
+                    "type": "normal",
+                    "command": "$HOME/.config/hypr/scripts/audio-output.sh"
+                }
+            ]
+        }
+    }
+}

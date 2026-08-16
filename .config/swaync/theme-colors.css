@@ -1,0 +1,7 @@
+@define-color foreground      @on_background;
+@define-color color1          @secondary;
+@define-color color2          @error;
+@define-color color3          @tertiary;
+@define-color color4          @primary;
+@define-color color5          @secondary_container;
+@define-color color6          @primary;

@@ -1,0 +1,97 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Small pill modules, translucent, blurred background */
+#custom-launcher,
+#workspaces,
+#window,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#custom-cc,
+#tray,
+#custom-power {
+    background: @blur_background;
+    border: 1px solid alpha(@outline, 0.25);
+    border-radius: 999px;
+    padding: 2px 4px;
+    margin: 1px 2px;
+    color: @on_background;
+}
+
+#custom-launcher {
+    color: @primary;
+    font-size: 14px;
+    padding: 3px 14px 1px 10px;
+}
+
+#custom-cc {
+    padding: 2px 12px;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    color: @outline;
+    background: transparent;
+    border-radius: 999px;
+    min-width: 0;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: @primary;
+}
+
+#workspaces button.urgent {
+    color: @error;
+}
+
+#window {
+    color: @on_surface_variant;
+    font-style: italic;
+}
+
+/* The clock — no pill background, just clean floating text with a soft accent */
+#clock {
+    background: transparent;
+    color: @clock;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+}
+
+#pulseaudio.muted {
+    color: @error;
+}
+
+#custom-cc:hover {
+    color: @primary;
+}
+
+#network.disconnected {
+    color: @error;
+}
+
+#tray {
+    padding: 2px 8px;
+}
+
+#custom-power {
+    color: @error;
+    padding: 2px 12px 2px 8px;
+}
+
+#custom-power:hover {
+    background: alpha(@error, 0.15);
+}

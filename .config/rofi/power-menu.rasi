@@ -1,0 +1,97 @@
+/* Power menu — centered list */
+configuration {
+    modi:                       "dmenu";
+    font:                       "JetBrainsMono Nerd Font 11";
+    show-icons:                 false;
+    hover-select:               false;
+    scroll-method:              1;
+    click-to-exit:              true;
+    close-on-delete:            true;
+    kb-cancel:                  "Escape";
+}
+
+@theme "~/.config/rofi/colors.rasi"
+@import "~/.cache/ml4w/hyprland-dotfiles/current_wallpaper.rasi"
+
+window {
+    width:                        22em;
+    spacing:                      0em;
+    padding:                      0em;
+    margin:                       0px;
+    border:                       1px;
+    border-color:                 @primary;
+    border-radius:                14px;
+    background-color:             @background;
+    transparency:                 "real";
+    location:                     center;
+    anchor:                       center;
+    cursor:                       "default";
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0em;
+    orientation:                 horizontal;
+    children:                    [ "listbox" ];
+    background-color:            transparent;
+    background-image:            @current-image;
+}
+
+inputbar {
+    enabled:                     false;
+}
+
+listbox {
+    padding:                     0em;
+    spacing:                     0em;
+    orientation:                 vertical;
+    children:                    [ "listview" ];
+    background-color:            transparent;
+}
+
+listview {
+    padding:                     0.8em;
+    spacing:                     0.2em;
+    margin:                      0em;
+    enabled:                     true;
+    columns:                     1;
+    lines:                       5;
+    cycle:                       true;
+    dynamic:                     false;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+}
+
+element {
+    enabled:                     true;
+    padding:                     0.6em 1em;
+    margin:                      0em;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    border-radius:               1.1em;
+}
+
+element selected.normal {
+    background-color:            @surface;
+    text-color:                  @on-surface;
+    border-radius:               1.1em;
+}
+
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
