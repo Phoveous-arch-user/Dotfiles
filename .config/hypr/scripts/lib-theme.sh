@@ -139,8 +139,6 @@ run_matugen() {
     fi
 }
 
-# Optional per-theme waybar clock color override (appended after matugen
-# rewrites colors.css, so the later definition wins).
 apply_clock_override() {
     [ -n "$CLOCK" ] || return 0
     local css="$HOME/.config/waybar/colors.css"
@@ -184,7 +182,7 @@ reload_apps() {
 # ---------------------------------------------------------------
 # Theme config parsing
 # ---------------------------------------------------------------
-image_files() { # print image paths from dirs or files (dirs: sorted, maxdepth 1)
+image_files() { 
     local p
     for p in "$@"; do
         [ -e "$p" ] || continue
@@ -197,11 +195,6 @@ image_files() { # print image paths from dirs or files (dirs: sorted, maxdepth 1
     done
 }
 
-# Builds THEME_WALLPAPER_SET (newline-separated, ordered, deduped):
-#   1. explicit `wallpaper =` image (primary)
-#   2. `wallpapers =` key: a folder path, or a `;`-separated list of paths
-#   3. every image physically inside the theme folder
-# Relies on WALLPAPER / WALLPAPERS already populated by load_theme_config.
 build_wallpaper_set() {
     local dir="$1" path line
     local -a parts=() images=()
