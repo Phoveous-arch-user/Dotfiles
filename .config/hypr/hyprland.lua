@@ -331,6 +331,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 
 -- THEME / WALLPAPER --
 hl.bind("CTRL + Tab",   hl.dsp.exec_cmd("~/.config/hypr/scripts/theme-switcher.sh"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-picker.sh"))  -- wallpaper picker (current theme)
 hl.bind("CTRL + left",  hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper.sh prev"))
 hl.bind("CTRL + right", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper.sh next"))
 

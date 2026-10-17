@@ -19,6 +19,7 @@ Usage: wallpaper.sh <command>
   next [folder]             Cycle to the next wallpaper (active theme's set, or a folder)
   prev [folder]             Cycle to the previous wallpaper
   random [folder]           Pick a random wallpaper
+  select <path>             Apply a wallpaper, keeping the active theme's scheme/accent
 
 With no folder argument, next/prev/random cycle only the wallpapers
 associated with the active theme (theme folder images + its wallpapers key).
@@ -112,6 +113,21 @@ theme_wallpaper_pick() {
     set_wallpaper_themed "$img" "yes" "$MODE" "$SCHEME" "$ACCENT"
 }
 
+# Apply a specific wallpaper in the context of the ACTIVE THEME, keeping the
+# theme's scheme/accent/mode and remembering the choice for next time.
+apply_in_theme() {
+    local img="$1"
+    [ -f "$img" ] || die "wallpaper not found: $img"
+    local name; name="$(current_theme)"
+    if [ -n "$name" ] && [ -d "$THEMES_DIR/$name" ]; then
+        load_theme_config "$THEMES_DIR/$name"
+        save_theme_wallpaper "$name" "$img"
+        set_wallpaper_themed "$img" "yes" "$MODE" "$SCHEME" "$ACCENT"
+    else
+        set_wallpaper_themed "$img" "yes"
+    fi
+}
+
 cycle_folder() {
     local folder; folder="$(wallpaper_folder "$1")"
     local current; current="$(cat "$CURRENT_WALLPAPER" 2>/dev/null)"
@@ -134,6 +150,10 @@ case "$CMD" in
         else
             theme_wallpaper_pick "$CMD"
         fi
+        ;;
+    select)
+        [ -n "$2" ] || die "missing wallpaper path"
+        apply_in_theme "$2"
         ;;
     -h|--help|help) usage ;;
     *) set_wallpaper_themed "$CMD" "yes" ;;
